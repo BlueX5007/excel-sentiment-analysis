@@ -15,13 +15,13 @@ sheet = wb[sheetName]  # Replace with your sheet name
 sia = SentimentIntensityAnalyzer()
 
 for row in range(columnNumber, sheet.max_row + 1):  # Assuming row 1 contains headers
-    review = sheet.cell(row=row, column=2).value  # Assuming reviews are in column 2
+    review = sheet.cell(row=row, column=columnNumber).value
     polarity_scores = sia.polarity_scores(review)
     sentiment = 'neutral'
     if polarity_scores['compound'] > 0.05:
         sentiment = 'positive'
     elif polarity_scores['compound'] < -0.05:
         sentiment = 'negative'
-    sheet.cell(row=row, column=3, value=sentiment)  # Write sentiment to column 3
+    sheet.cell(row=row, column=columnNumber+1, value=sentiment)  # Write sentiment to column 3
 
 wb.save(f'{fileName}.xlsx')
