@@ -14,7 +14,7 @@ sheet = wb[sheetName]  # Replace with your sheet name
 
 sia = SentimentIntensityAnalyzer()
 
-for row in range(columnNumber, sheet.max_row + 1):  # Assuming row 1 contains headers
+for row in range(2, sheet.max_row + 1):  # Assuming row 1 contains headers
     review = sheet.cell(row=row, column=columnNumber).value
     polarity_scores = sia.polarity_scores(review)
     sentiment = 'neutral'
