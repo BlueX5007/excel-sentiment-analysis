@@ -6,7 +6,7 @@ nltk.download('vader_lexicon')
 
 fileName = input("Enter the excel file name without the extension.")
 sheetName = input("Enter your sheet name.")
-columnNumber = input("Enter the column number which will be reserved for review analysis.")
+columnNumber = int(input("Enter the column number which will be reserved for review analysis."))
 warning = input("By pressing Enter to continue, you hereby acknowledge that you are responsible for your files and that you have read how this code works and modifies your Excel file. Create a backup just for safety.")
 
 wb = openpyxl.load_workbook(f'{fileName}.xlsx')
